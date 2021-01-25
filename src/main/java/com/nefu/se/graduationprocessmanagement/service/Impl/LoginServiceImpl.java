@@ -20,12 +20,12 @@ public class LoginServiceImpl extends ServiceImpl<UserMapper, User> implements L
         wrapper.eq("password",password);
         User user = userMapper.selectOne(wrapper);
         if(user == null){
-            System.out.println("yes");
+            System.out.println("no");
             System.out.println(user);
             return user;
         }else{
-            System.out.println("no");
-            return null;
+            System.out.println("yes");
+            return user;
         }
     }
 }

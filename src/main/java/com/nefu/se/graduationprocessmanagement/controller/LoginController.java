@@ -7,16 +7,21 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/Login")
+@RequestMapping("/api")
 public class LoginController {
     @Autowired
     private LoginService loginService;
 
-    @PostMapping("{number}/{password}")
-    public User login(@PathVariable String number, @PathVariable String password){
+    @PostMapping("Login/{number}/{password}")
+    public @ResponseBody User login(@PathVariable String number, @PathVariable String password){
         User user = loginService.loginS(number,password);
+//        ModelAndView modelAndView = new ModelAndView();
+//        modelAndView.setViewName("userLogin");
+//        modelAndView.addObject("user",user);
         return user;
     }
 }

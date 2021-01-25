@@ -2,11 +2,9 @@ package com.nefu.se.graduationprocessmanagement.service.Impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.nefu.se.graduationprocessmanagement.component.ResponseUtil;
 import com.nefu.se.graduationprocessmanagement.entity.User;
 import com.nefu.se.graduationprocessmanagement.mapper.UserMapper;
 import com.nefu.se.graduationprocessmanagement.service.LoginService;
-import com.nefu.se.graduationprocessmanagement.vo.BaseResponseVO;
 import com.nefu.se.graduationprocessmanagement.vo.ResultVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.codec.Hex;

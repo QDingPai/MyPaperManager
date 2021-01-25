@@ -1,6 +1,7 @@
 package com.nefu.se.graduationprocessmanagement.controller;
 
 import com.nefu.se.graduationprocessmanagement.entity.User;
+import com.nefu.se.graduationprocessmanagement.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,6 +16,7 @@ public class LoginController {
 
     @PostMapping("{number}/{password}")
     public User login(@PathVariable String number, @PathVariable String password){
-        com.nefu.se.graduationprocessmanagement.entity.User user = loginService.loginS(number,password);
+        User user = loginService.loginS(number,password);
+        return user;
     }
 }

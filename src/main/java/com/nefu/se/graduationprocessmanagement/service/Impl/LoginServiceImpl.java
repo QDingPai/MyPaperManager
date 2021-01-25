@@ -36,16 +36,16 @@ public class LoginServiceImpl extends ServiceImpl<UserMapper, User> implements L
         }else{
             //成功
             Map<String,String> map = new HashMap();
-            byte[] array = new byte[4];
+            byte[] array = new byte[2];
             new SecureRandom().nextBytes(array);
             char[] encode = Hex.encode(array);
             String hex = new String(encode);
-            byte[] array1 = new byte[3];
+            byte[] array1 = new byte[2];
             new SecureRandom().nextBytes(array1);
             char[] encode1 = Hex.encode(array1);
             String hex1 = new String(encode1);
             ResultVO resultVO=new ResultVO();
-            resultVO.setMessage(encode+user.getNumber()+encode1);
+            resultVO.setMessage("登录成功");
             resultVO.setCode(200);
             Map<String,Object> map1=new HashMap<String,Object>();
             map1.put("roleValue",hex+user.getRoleValue()+hex1);

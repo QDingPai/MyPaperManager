@@ -21,7 +21,7 @@ public class ResponseUtil {
         return baseResponse;
     }
 
-
+    //账号密码错误
     public static BaseResponseVO requestError(){
         BaseResponseVO baseResponse = new BaseResponseVO();
         baseResponse.setCode(ResponseEnum.PARAMETER_ERROR.getCode());

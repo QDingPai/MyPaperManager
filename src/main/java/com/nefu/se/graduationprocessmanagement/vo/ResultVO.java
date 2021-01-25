@@ -1,7 +1,9 @@
 package com.nefu.se.graduationprocessmanagement.vo;
 
-import java.util.Map;
+import lombok.Data;
 
+import java.util.Map;
+@Data
 public class ResultVO {
     private Integer code;
     private String message;

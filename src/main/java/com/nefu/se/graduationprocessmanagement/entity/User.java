@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-@TableName("User")
+@TableName("user")
 public class User {
     private String number;
 

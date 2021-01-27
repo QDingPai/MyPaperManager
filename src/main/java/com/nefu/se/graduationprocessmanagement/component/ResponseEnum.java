@@ -1,10 +1,10 @@
-package com.nefu.se.graduationprocessmanagement.exception;
+package com.nefu.se.graduationprocessmanagement.component;
 
 
 
 public enum ResponseEnum {
     SUCCESS(200, "success"),
-    PARAMETER_ERROR(400, "request error"),
+    REQUEST_ERROR(400, "request error"),
     SERVER_INTERNAL_ERROR(500, "internal server error"),
 
     ;

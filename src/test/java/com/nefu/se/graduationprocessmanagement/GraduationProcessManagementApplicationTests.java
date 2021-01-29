@@ -26,5 +26,9 @@ class GraduationProcessManagementApplicationTests {
 //        u.setAddress("114");
 //        userMapper.updateById(u);
 //    }
+    @Test
+    public void te(){
+
+    }
 
 }

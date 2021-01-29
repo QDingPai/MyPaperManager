@@ -12,5 +12,8 @@ import org.springframework.stereotype.Repository;
 public interface UserMapper extends BaseMapper<User> {
     @Select("select * from `user` where number = #{number}")
     User getUserByNumber(String number);
+    @Insert("insert into `user` values ( #{user.number}, #{user.password} , #{user.roleValue} )")
+    Void saveUser(User user);
 
+    int insert(User user);
 }

@@ -1,5 +1,6 @@
 package com.nefu.se.graduationprocessmanagement.service;
 
+import com.nefu.se.graduationprocessmanagement.entity.Teacher;
 import com.nefu.se.graduationprocessmanagement.entity.User;
 import com.nefu.se.graduationprocessmanagement.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,10 @@ public class UserService {
 
         */
         return userMapper.getUserByNumber(number);
-        }
+    }
+
+
+
+
 }
 

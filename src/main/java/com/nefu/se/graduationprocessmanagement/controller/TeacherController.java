@@ -1,5 +1,6 @@
 package com.nefu.se.graduationprocessmanagement.controller;
 
+import com.nefu.se.graduationprocessmanagement.component.ResponseComponent;
 import com.nefu.se.graduationprocessmanagement.dto.ImportTeacher;
 import com.nefu.se.graduationprocessmanagement.service.TeacherService;
 import com.nefu.se.graduationprocessmanagement.vo.ResultVO;
@@ -19,6 +20,8 @@ public class TeacherController {
     private ResultVO resultVO = new ResultVO();
     @Autowired
     private TeacherService teacherService;
+    @Autowired
+    private ResponseComponent responseComponent;
 
 
     @PostMapping("/admin")
@@ -30,6 +33,7 @@ public class TeacherController {
         //dto拆给do
         //do进行持久化
         //判断是否为空? 判断导入权限大于?
+        resultVO = responseComponent.success();
         return resultVO;
     }
 }

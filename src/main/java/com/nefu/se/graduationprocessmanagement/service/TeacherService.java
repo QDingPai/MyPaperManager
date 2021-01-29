@@ -43,9 +43,9 @@ public class TeacherService implements Serializable {
             /**
              * 测试事务回滚
              */
-//            if (importTeacher.getStudentNum()==1){
-//                System.out.println(3/0);
-//            }
+            if (importTeacher.getStudentNum()==1){
+                System.out.println(3/0);
+            }
 
             teacher.setTitle(importTeacher.getTitles());
             teacher.setStudentNum(importTeacher.getStudentNum());

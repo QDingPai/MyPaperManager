@@ -1,8 +1,9 @@
 package com.nefu.se.graduationprocessmanagement.controller;
 
 import com.nefu.se.graduationprocessmanagement.component.ResponseComponent;
-import com.nefu.se.graduationprocessmanagement.dto.ImportTeacher;
-import com.nefu.se.graduationprocessmanagement.service.TeacherService;
+import com.nefu.se.graduationprocessmanagement.dto.TeacherDTO;
+import com.nefu.se.graduationprocessmanagement.mapper.TeacherMapper;
+import com.nefu.se.graduationprocessmanagement.service.AdminService;
 import com.nefu.se.graduationprocessmanagement.vo.ResultVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,24 +17,26 @@ import java.util.List;
 @Slf4j
 @RestController
 @RequestMapping("/api")
-public class TeacherController {
+public class AdminController {
     private ResultVO resultVO = new ResultVO();
     @Autowired
-    private TeacherService teacherService;
+    private AdminService adminService;
     @Autowired
     private ResponseComponent responseComponent;
-
+    @Autowired
+    private TeacherMapper teacherMapper;
 
     @PostMapping("/admin")
-    public ResultVO importTeacherTable(@RequestBody List<ImportTeacher> list){
+    public ResultVO importTeacherTable(@RequestBody List<TeacherDTO> list){
     //事务控制???
 //        log.debug("11111111111111");
-        teacherService.importImportTeacherDTO(list);
+        adminService.addTeachers(list);
         //遍历出来 dto
         //dto拆给do
         //do进行持久化
         //判断是否为空? 判断导入权限大于?
         resultVO = responseComponent.success();
+//        resultVO.setData(teacherMapper.selectTeacher());
         return resultVO;
     }
 }

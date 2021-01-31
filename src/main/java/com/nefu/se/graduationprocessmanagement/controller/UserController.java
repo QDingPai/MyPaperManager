@@ -47,7 +47,7 @@ public class UserController {
         resultVO = responseComponent.success();
         Map<String, Object> map1 = new HashMap();
         map1.put("roleValue", encryptionComponent.EncryptionFor8()
-                + user1.getRoleValue()
+                + user1.getRole()
                 + encryptionComponent.EncryptionFor8());
         resultVO.setData(map1);
         return resultVO;

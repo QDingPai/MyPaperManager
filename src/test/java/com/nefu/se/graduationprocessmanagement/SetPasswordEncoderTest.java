@@ -21,7 +21,7 @@ public class SetPasswordEncoderTest {
         String rePassword = passwordEncoder.encode(password);
         System.out.println(rePassword);
         user.setPassword(rePassword);
-        user.setRoleValue(1);
+        user.setRole(1);
 
         int result = userMapper.insert(user);
 

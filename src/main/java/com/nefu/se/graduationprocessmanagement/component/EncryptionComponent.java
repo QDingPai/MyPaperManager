@@ -33,7 +33,7 @@ public class EncryptionComponent {
             return hex;
     }
         public String userToJson(User user) {
-            var resultMap = Map.of( "RoleValue", user.getRoleValue());
+            var resultMap = Map.of( "RoleValue", user.getRole());
             return encrypt(resultMap);
         }
     @Bean

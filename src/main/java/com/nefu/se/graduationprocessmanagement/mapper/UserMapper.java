@@ -16,6 +16,7 @@ public interface UserMapper extends BaseMapper<User> {
     @Insert("insert into `user` (number,name,role,password) values ( #{user.number} ," +
             "#{user.name},  #{user.role} ,#{user.password})")
     Void saveUser(@Param("user") User user);
-
+    @Select("select * from `user` where id = #{id}")
+    User getUserById(Long id);
     int insert(User user);
 }

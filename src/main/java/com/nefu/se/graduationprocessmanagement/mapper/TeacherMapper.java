@@ -18,8 +18,8 @@ public interface TeacherMapper extends BaseMapper<Teacher> {
             ", #{teacher.description})")
      Void saveTeacher(@Param("teacher") Teacher teacher);
 
-    @Select("select * from `teacher` ")
-    TeacherDTO selectTeacher(@Param("teacher") Long id);
+    @Select("select * from `teacher` where id = #{id}")
+    Teacher selectTeacher(/*@Param("teacher")*/ Long id);
 
     int insert(Teacher teacher);
 }

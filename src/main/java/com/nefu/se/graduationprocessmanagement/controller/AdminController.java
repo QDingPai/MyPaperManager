@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Slf4j
 @RestController
@@ -26,17 +28,15 @@ public class AdminController {
     @Autowired
     private TeacherMapper teacherMapper;
 
+    private Map<String,Object> data = new HashMap<>();
     @PostMapping("/admin")
     public ResultVO importTeacherTable(@RequestBody List<TeacherDTO> list){
     //事务控制???
-//        log.debug("11111111111111");
-        adminService.addTeachers(list);
-        //遍历出来 dto
-        //dto拆给do
-        //do进行持久化
-        //判断是否为空? 判断导入权限大于?
+
+
         resultVO = responseComponent.success();
-//        resultVO.setData(teacherMapper.selectTeacher());
+        data.put("TeacherDTO",adminService.addTeachers(list));
+        resultVO.setData(data);
         return resultVO;
     }
 }

@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @TableName("user")
 public class User implements Serializable {
-    @TableId(type = IdType.ASSIGN_ID)
+//    @TableId(type = IdType.ASSIGN_ID)
     private Long id;
 
     private String number;

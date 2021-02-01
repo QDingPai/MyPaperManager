@@ -29,7 +29,7 @@ public class AdminService {
 
     private int i=1;
 
-    public void addTeachers(List<TeacherDTO> list){
+    public TeacherDTO addTeachers(List<TeacherDTO> list){
         list.forEach(teacherDTO -> {
             System.out.println(teacherDTO);
             user.setNumber(teacherDTO.getNumber());
@@ -75,5 +75,17 @@ public class AdminService {
             teacherMapper.insert(teacher);
 
         });
+        return selectTeacherDTO(user.getId());
+    }
+    public TeacherDTO selectTeacherDTO(Long id){
+        User user = userMapper.getUserById(id);
+        Teacher teacher = teacherMapper.selectTeacher(id);
+        TeacherDTO teacherDTO = new TeacherDTO();
+        teacherDTO.setName(user.getName());
+        teacherDTO.setQuantity(teacher.getQuantity());
+        teacherDTO.setRole(user.getRole());
+        teacherDTO.setNumber(user.getNumber());
+        teacherDTO.setTitles(teacher.getTitle());
+        return teacherDTO;
     }
 }

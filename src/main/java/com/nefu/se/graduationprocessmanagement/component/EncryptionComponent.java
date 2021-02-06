@@ -1,6 +1,7 @@
 package com.nefu.se.graduationprocessmanagement.component;
 
 import com.nefu.se.graduationprocessmanagement.entity.User;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -13,7 +14,7 @@ import java.security.SecureRandom;
 import java.util.Map;
 
 
-
+@Slf4j
 @Component
 public class EncryptionComponent {
         @Autowired
@@ -33,14 +34,24 @@ public class EncryptionComponent {
             return hex;
     }
         public String userToJson(User user) {
-            var resultMap = Map.of( "RoleValue", user.getRole());
+            var resultMap = Map.of( "Role", user.getRole(),"Id",user.getId());
             return encrypt(resultMap);
         }
+    //解决SpringScurity的BUG
     @Bean
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
     }
 
+    public Map<String, Object> decrypt(String encryptString) {
+        try {
+            String json = Encryptors.text(secretKey, salt).decrypt(encryptString);
+            return objectMapperComponent.readValue(json);
+        } catch (Exception e) {
+            log.debug("解析错误");
+        }
+        return null;
+    }
 
 
 //    Map<String, String> map = new HashMap();

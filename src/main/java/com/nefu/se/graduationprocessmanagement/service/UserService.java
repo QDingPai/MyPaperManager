@@ -28,8 +28,13 @@ public class UserService {
         return userMapper.getUserByNumber(number);
     }
 
+    public User getUserById(String number) {
+        return null;
+    }
+    public User updateRole(String id){
+        userMapper.updateRoleById(id);
+    }
+    public Void resertPasswordById(String id,String password){
 
-
-
+    }
 }
-

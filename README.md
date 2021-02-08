@@ -13,6 +13,23 @@ mybatis-plus全局雪花算法生成ID
 Jackson序列化时忽略空值属性  
 ```
 
+* todo日志
+```
+-----------------------------------
+2020-2-8
+
+完成三个接口
+
+patch /api/director/teachers/{uid}/role
+patch /api/director/teachers/{uid}/info
+put /api/director/teachers/{uid}/password
+
+拦截器关闭
+-----------------------------------
+
+
+```
+
 
 
 

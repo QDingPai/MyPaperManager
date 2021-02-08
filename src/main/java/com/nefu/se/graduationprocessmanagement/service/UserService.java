@@ -1,16 +1,21 @@
 package com.nefu.se.graduationprocessmanagement.service;
 
-import com.nefu.se.graduationprocessmanagement.entity.Teacher;
 import com.nefu.se.graduationprocessmanagement.entity.User;
+import com.nefu.se.graduationprocessmanagement.mapper.TeacherMapper;
 import com.nefu.se.graduationprocessmanagement.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 
 
 @Service
+@Transactional
 public class UserService {
     @Autowired
     private UserMapper userMapper;
+    @Autowired
+    private TeacherMapper teacherMapper;
 
     public User getUser(String number) {
         //改为原SQL
@@ -28,13 +33,19 @@ public class UserService {
         return userMapper.getUserByNumber(number);
     }
 
-    public User getUserById(String number) {
+    public User getUserById(Long number) {
+        return userMapper.getUserById(number);
+    }
+    public Integer updateRole(Long id){
+        userMapper.updateRoleById(id);
         return null;
     }
-    public User updateRole(String id){
-        userMapper.updateRoleById(id);
+    //todo 完善
+    public void resertPasswordById(Long id, String password){
+        userMapper.resertPassword(id, password);
     }
-    public Void resertPasswordById(String id,String password){
-
+    public void updataTeacher(Long uid, String title,String name ){
+        userMapper.updateName(uid,name);
+        teacherMapper.updateTeacherTitle(uid,title);
     }
 }

@@ -41,8 +41,6 @@ public class AdminService {
                 user.setRole(teacherDTO.getRole());
             }
 
-
-//            userMapper.saveUser(user);
             userMapper.insert(user);
             /**
              * 测试事务回滚
@@ -52,10 +50,10 @@ public class AdminService {
 //            }
 
             teacher.setId(user.getId());
-            if (teacherDTO.getTitles() == null){
+            if (teacherDTO.getTitle() == null){
                 teacher.setTitle("讲师");
             }else {
-                teacher.setTitle(teacherDTO.getTitles());
+                teacher.setTitle(teacherDTO.getTitle());
             }
 
             if (teacherDTO.getQuantity() == null){
@@ -63,15 +61,8 @@ public class AdminService {
             }else {
                 teacher.setQuantity(teacherDTO.getQuantity());
             }
-            //group
-
-//                teacher.setGroup((short)1); //??
-
-            //description
 
                 teacher.setDescription("Web相关");
-
-//            teacherMapper.saveTeacher(teacher);
             teacherMapper.insert(teacher);
 
         });
@@ -85,7 +76,7 @@ public class AdminService {
         teacherDTO.setQuantity(teacher.getQuantity());
         teacherDTO.setRole(user.getRole());
         teacherDTO.setNumber(user.getNumber());
-        teacherDTO.setTitles(teacher.getTitle());
+        teacherDTO.setTitle(teacher.getTitle());
         return teacherDTO;
     }
 }

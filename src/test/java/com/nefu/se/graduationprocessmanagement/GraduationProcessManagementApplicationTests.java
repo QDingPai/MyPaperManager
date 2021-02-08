@@ -47,7 +47,7 @@ class GraduationProcessManagementApplicationTests {
         teacherDTO.setQuantity(teacher.getQuantity());
         teacherDTO.setRole(user.getRole());
         teacherDTO.setNumber(user.getNumber());
-        teacherDTO.setTitles(teacher.getTitle());
+        teacherDTO.setTitle(teacher.getTitle());
         System.out.println(teacherDTO);
         // TODO 完成记得测试
     }

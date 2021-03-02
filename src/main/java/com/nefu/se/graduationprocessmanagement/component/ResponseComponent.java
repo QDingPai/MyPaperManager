@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
+
 import javax.servlet.http.HttpServletResponse;
 import java.util.Objects;
 
@@ -42,6 +43,7 @@ public class ResponseComponent {
                 .requireNonNull(RequestContextHolder.getRequestAttributes()))
                 .getResponse();
     }
+
     /**
      * 将用户信息设置到 repsonseHeader
      */

@@ -17,6 +17,7 @@ public class SetPasswordEncoderTest {
     public void testInsert(){
         User user = new User();
         user.setNumber("1001");
+        user.setName("hhh");
         var password = "123456";
         String rePassword = passwordEncoder.encode(password);
         System.out.println(rePassword);

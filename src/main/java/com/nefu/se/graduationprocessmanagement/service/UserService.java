@@ -40,7 +40,7 @@ public class UserService {
         userMapper.updateRoleById(id);
         return null;
     }
-    //todo 完善
+
     public void resertPasswordById(Long id, String password){
         userMapper.resertPassword(id, password);
     }

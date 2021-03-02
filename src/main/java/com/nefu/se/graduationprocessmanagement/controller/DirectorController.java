@@ -1,8 +1,11 @@
 package com.nefu.se.graduationprocessmanagement.controller;
 
 import com.nefu.se.graduationprocessmanagement.dto.TeacherDTO;
+import com.nefu.se.graduationprocessmanagement.entity.Student;
+import com.nefu.se.graduationprocessmanagement.entity.Task;
 import com.nefu.se.graduationprocessmanagement.entity.User;
 import com.nefu.se.graduationprocessmanagement.exception.AuthorNotFoundExeception;
+import com.nefu.se.graduationprocessmanagement.mapper.TaskMapper;
 import com.nefu.se.graduationprocessmanagement.service.UserService;
 import com.nefu.se.graduationprocessmanagement.vo.ResultVO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +13,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -20,10 +24,13 @@ public class DirectorController {
     private UserService userService;
     @Autowired
     private PasswordEncoder passwordEncoder;
+    @Autowired
+    private TaskMapper taskMapper;
+
 
     @PostMapping("/students")
-    public ResultVO importStudent(@RequestBody Map<String ,Object> students) {
-        //TODO 后置
+    public ResultVO importStudent(@RequestBody List<Student> students) {
+
         //遍历 事务 插入
 
         return null;
@@ -60,7 +67,7 @@ public class DirectorController {
     /**
      *
      * @param uid
-     * @param map
+     * @param
      * @return
      */
     @PatchMapping("/teachers/{uid}/info")
@@ -119,4 +126,14 @@ public class DirectorController {
         return resultVO;
     }
 
+    //创建选导师任务 TODO 0 接口 时间处理有问题?
+    @PostMapping("/tasks/choice")
+    public ResultVO createTask(Task task) {
+        taskMapper.insert(task);
+        ResultVO resultVO = new ResultVO();
+        resultVO.success();
+        return resultVO;
+    }
 }
+
+

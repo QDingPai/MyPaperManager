@@ -28,8 +28,11 @@ public interface UserMapper extends BaseMapper<User> {
     Teacher getTeacherBuId(Long id);
 
     @Update("update `user` set name = #{name} where id = #{id}")
-    int updateName(@Param("id")Long id,@Param("name")String name);
+    int updateName(@Param("id") Long id, @Param("name") String name);
 
     @Update("update `user` set password = #{password} where id = #{id}")
-    int resertPassword(@Param("id")Long id, @Param("password")String password);
+    int resertPassword(@Param("id") Long id, @Param("password") String password);
+
+    @Update("update `user` set name = #{rePassword} where id = #{id}")
+    int updatePassword(@Param("id") Long id, @Param("password") String rePassword);
 }

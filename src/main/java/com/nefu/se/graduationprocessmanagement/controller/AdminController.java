@@ -28,14 +28,15 @@ public class AdminController {
     @Autowired
     private TeacherMapper teacherMapper;
 
-    private Map<String,Object> data = new HashMap<>();
+    private Map<String, Object> data = new HashMap<>();
+
     @PostMapping("/admin")
-    public ResultVO importTeacherTable(@RequestBody List<TeacherDTO> list){
-    //事务控制???
+    public ResultVO importTeacherTable(@RequestBody List<TeacherDTO> list) {
+        //事务控制???
 
 
         resultVO = responseComponent.success();
-        data.put("TeacherDTO",adminService.addTeachers(list));
+        data.put("TeacherDTO", adminService.addTeachers(list));
         resultVO.setData(data);
         return resultVO;
     }

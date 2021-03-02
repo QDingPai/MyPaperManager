@@ -5,12 +5,19 @@ import com.nefu.se.graduationprocessmanagement.entity.Teacher;
 import com.nefu.se.graduationprocessmanagement.entity.User;
 import com.nefu.se.graduationprocessmanagement.mapper.TeacherMapper;
 import com.nefu.se.graduationprocessmanagement.mapper.UserMapper;
+import com.nefu.se.graduationprocessmanagement.vo.TeacherVO;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 @Slf4j
 @SpringBootTest
 @Transactional
@@ -21,7 +28,7 @@ class GraduationProcessManagementApplicationTests {
     @Autowired
     private TeacherMapper teacherMapper;
 
-//    @Autowired
+    //    @Autowired
 //    private UserMapper userMapper;
 //    @Test
 //    public void add_test() {
@@ -37,7 +44,7 @@ class GraduationProcessManagementApplicationTests {
 //        userMapper.updateById(u);
 //    }
     @Test
-    public void teacherDTO(){
+    public void teacherDTO() {
         User user = userMapper.getUserById(1001L);
 //        System.out.println(userMapper.getUserById(1001L));
         Teacher teacher = teacherMapper.selectTeacher(1001L);
@@ -49,6 +56,17 @@ class GraduationProcessManagementApplicationTests {
         teacherDTO.setNumber(user.getNumber());
         teacherDTO.setTitle(teacher.getTitle());
         System.out.println(teacherDTO);
-        // TODO 完成记得测试
+
+    }
+
+
+    @Test
+    public void testTeacherInfo() {
+        List<TeacherVO> list = new ArrayList<>();
+        list = teacherMapper.getAllTeachers();
+        System.out.println("开始"+list);
+        Map<String,Object> map = new HashMap<>();
+        map.put("teachers",teacherMapper.getAllTeachers());
+        System.out.println(map);
     }
 }

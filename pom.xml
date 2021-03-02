@@ -94,14 +94,14 @@
 
     <build>
         <plugins>
-            <plugin type="com.github.bwhyman.mybatisplusgenerator.MyBatisPlusPluginAdapter">
-                <!-- Optional. @Version -->
-                <!--            <property name="version" value="version"/>-->
-                <!-- Optional. @TableField(updateStrategy = FieldStrategy.NEVER)  -->
-                <property name="never" value="create_time, update_time"/>
-                <!-- Optional. serializable -->
-                <!--            <property name="serializable" value="false"/>-->
-            </plugin>
+<!--            <plugin type="com.github.bwhyman.mybatisplusgenerator.MyBatisPlusPluginAdapter">-->
+<!--                &lt;!&ndash; Optional. @Version &ndash;&gt;-->
+<!--                &lt;!&ndash;            <property name="version" value="version"/>&ndash;&gt;-->
+<!--                &lt;!&ndash; Optional. @TableField(updateStrategy = FieldStrategy.NEVER)  &ndash;&gt;-->
+<!--                <property name="never" value="create_time, update_time"/>-->
+<!--                &lt;!&ndash; Optional. serializable &ndash;&gt;-->
+<!--                &lt;!&ndash;            <property name="serializable" value="false"/>&ndash;&gt;-->
+<!--            </plugin>-->
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
